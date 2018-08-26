@@ -1,0 +1,36 @@
+{
+    "output": "./output",
+    "esversion": "6",
+    "helpers": {
+        "WebDriverIO": {
+            "url": "http://quiz-adminsite-qa.azurewebsites.net/",
+            "browser": "chrome",
+            "desiredCapabilities": {
+                "chromeOptions": {
+                    "args": [
+                        "--headless",
+                        "--disable-gpu",
+                        "--window-size=1600,900"
+                    ]
+                }
+            }
+        }
+    },
+    "include": {
+        "I": "./steps_file.js",
+        "loginPage": "./pages/loginPage.js",
+        "libraryPage": "./pages/libraryPage.js",
+        "createPage": "./pages/createPage.js",
+        "guidelinesPage": "./pages/guidelinesPage.js",
+        "createPollPage": "./pages/CreatePollPage.js"
+    },
+    "mocha": {},
+    "bootstrap": false,
+    "teardown": null,
+    "hooks": [],
+    "gherkin": {},
+    "tests": "./*_test.js",
+    "timeout": 10000,
+    "disableScreenshots": true,
+    "name": "codeceptjs"
+}
