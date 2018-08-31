@@ -9,7 +9,7 @@ module.exports = {
     askyLogo: { css: '.text-center > img' },
     letsGetStartedText: { css: 'span.login-middle-title' },
     getMoreInformationButton: { xpath: '//*[@id="loginContainer"]/div[4]/button[1]' },
-    logInButton: { xpath: '//*[@id="loginContainer"]/div[4]/button[2]' },
+    logInButton: {xpath: '//*[@id="loginContainer"]/div[4]/button[2]'},
     logInTab: { xpath: '//*[@id="auth0-lock-container-1"]/div/div[2]/form/div/div/div[3]/span/div/div/div/div/div/div/div/div/div[1]/ul/li[1]/a' },
     signUpTab: { xpath: '//*[@id="auth0-lock-container-1"]/div/div[2]/form/div/div/div[3]/span/div/div/div/div/div/div/div/div/div[1]/ul/li[2]/a' },
     emailField: { css: 'div.auth0-lock-input-block.auth0-lock-input-email > div > input' },
@@ -32,7 +32,7 @@ module.exports = {
     },
 
     clickLogInButton() {
-        I.click(this.logInButton);
+        I.retry({retries: 5, minTimeout: 500}).click(this.logInButton);
     },
 
     sendForm(email, password) {

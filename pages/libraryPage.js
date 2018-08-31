@@ -25,8 +25,11 @@ module.exports = {
         I.seeCurrentUrlEquals(this.currentTab);
     },
 
-    getUserAgreement() {
+    getUserAgreementIsPresent() {
         I.see(this.userAgreementPopupTitle);
+    },
+
+    getUserAgreement() {
         I.checkOption(this.userAgreementCheckbox);
         I.wait(1);
         I.seeCheckboxIsChecked(this.userAgreementCheckbox);

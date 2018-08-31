@@ -4,10 +4,6 @@ Feature('Smoke tests');
 
 Before((I) => {
     I.amOnPage('/');
-    I.clearCookie();
-    I.wait(3);
-    I.refreshPage();
-    I.wait(3);
 });
 
 xScenario('check Login page is opened', (I) => {
@@ -23,13 +19,16 @@ xScenario('click Get More Information button', (I, loginPage) => {
     I.seeInCurrentUrl('https://www.arkadium.com/contact/');
 });
 
-xScenario('login', { retries: 1 }, (I, loginPage, libraryPage) => {
+xScenario('login', (I, loginPage, libraryPage) => {
     loginPage.clickLogInButton();
     loginPage.sendForm('testsiteuser@arkadium.com', '123');
     I.wait(5);
     libraryPage.currentUrlIsAsExpected();
-    libraryPage.getUserAgreement();
-    I.wait(1);
+    I.wait(3);
+    I.say('Check if user agreement popup is present and accept it if its true');
+    if(libraryPage.getUserAgreementIsPresent()) {
+        libraryPage.getUserAgreement();
+    }
     libraryPage.checkLibraryPageIsOpened();
     I.saveScreenshot("libraryPage.png");
 });
@@ -38,10 +37,18 @@ Scenario('create poll quiz', (I, loginPage, libraryPage, createPage, createPollP
     loginPage.clickLogInButton();
     loginPage.sendForm('testsiteuser@arkadium.com', '123');
     I.wait(3);
-    libraryPage.getUserAgreement();
+    I.say('Check if user agreement popup is present and accept it if its true');
+    if(libraryPage.getUserAgreementIsPresent()) {
+        libraryPage.getUserAgreement();
+    }
     libraryPage.clickCreateButton();
     I.wait(3);
     createPage.clickCreateButton();
     I.wait(3);
+    
 
+    
+After((I) => {
+//  I.clearCookie();
+   });
 });

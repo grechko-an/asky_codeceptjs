@@ -10,7 +10,7 @@
                     "args": [
                         "--headless",
                         "--disable-gpu",
-                        "--window-size=1600,900"
+                        "--window-size=1600,800"
                     ]
                 }
             }
