@@ -6,6 +6,9 @@ module.exports = {
 
     // setting locators
 
+    titlePageTab: 'Title Page',
+    questionsTab: 'Questions',
+
 
 
     // introducing methods
