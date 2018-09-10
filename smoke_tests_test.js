@@ -11,9 +11,7 @@ Before((I) => {
     I.amOnPage('/');
 });
 
-After((I) => {
-    //  I.clearCookie();
-       });
+After(pause);
 
 xScenario('check Login page is opened', (I) => {
     I.seeElement({ css: '.text-center > img' });
