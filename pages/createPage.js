@@ -6,11 +6,12 @@ module.exports = {
 
     // setting locators
 
-    buttonPoll: 'Poll', //or {css: div.new-quiz-box.ng-scope > div > button.option-button.option-poll.option-icon}
+    buttonPoll: locate('button').withAttr({href: '#!/CreatePoll/'}),  //{ xpath: '/html/body/div[2]/div[2]/div[2]/div/button[4]' }, 
 
     // introducing methods
 
     clickPollButton() {
-        I.click(this.buttonPoll);
+         I.wait(5);
+         I.retry({retries: 3, minTimeout: 1000}).click(this.buttonPoll);
     },
 }

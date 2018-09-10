@@ -32,12 +32,16 @@ module.exports = {
     },
 
     clickLogInButton() {
+        I.wait(2);
         I.retry({retries: 5, minTimeout: 500}).click(this.logInButton);
     },
 
     sendForm(email, password) {
+        I.wait(2);
         I.fillField(this.emailField, email);
+        I.wait(2);
         I.fillField(this.passField, password);
+        I.wait(2);
         I.click(this.finalLogInButton);
     },
 

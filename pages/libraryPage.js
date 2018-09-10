@@ -25,15 +25,12 @@ module.exports = {
         I.seeCurrentUrlEquals(this.currentTab);
     },
 
-    getUserAgreementIsPresent() {
-        I.see(this.userAgreementPopupTitle);
-    },
-
     getUserAgreement() {
-        I.checkOption(this.userAgreementCheckbox);
-        I.wait(1);
+        I.wait(8);
+        I.click(this.userAgreementCheckbox);
+        I.wait(3);
         I.seeCheckboxIsChecked(this.userAgreementCheckbox);
-        I.wait(2);
+        I.wait(3);
         I.click(this.userAgreementAcceptButton);
     },
 
@@ -48,7 +45,22 @@ module.exports = {
     },
 
     clickCreateButton() {
+        I.wait(5);
         I.click(this.buttonCreateNew);
-    }
+    },
 
+    openLibraryPage() {
+        I.wait(10);
+        I.click(this.libraryTab);
+    },
+
+    //isUserAgreementIsPresent() {
+    //    if(this.getUserAgreementIsPresent()) {
+    //        this.getUserAgreement();
+    //    } 
+    //}
+
+    //getUserAgreementIsPresent() {
+    //   I.retry(2).see(this.userAgreementPopupTitle);
+    //}
 }
