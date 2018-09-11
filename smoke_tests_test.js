@@ -12,7 +12,7 @@ Before((I) => {
 });
 
 After((I) => {
-    pause();
+    //pause();
 });
 
 xScenario('check Login page is opened', (I) => {
