@@ -11,7 +11,9 @@ Before((I) => {
     I.amOnPage('/');
 });
 
-After(pause);
+After((I) => {
+    pause();
+});
 
 xScenario('check Login page is opened', (I) => {
     I.seeElement({ css: '.text-center > img' });
