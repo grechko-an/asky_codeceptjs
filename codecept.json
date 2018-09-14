@@ -4,15 +4,7 @@
     "WebDriverIO": {
       "url": "http://quiz-adminsite-qa.azurewebsites.net/",
       "browser": "chrome",
-      "desiredCapabilities": {
-        "chromeOptions": {
-          "args": [
-            "--headless",
-            "--disable-gpu",
-            "--window-size=1600,900"
-          ]
-        }
-      }
+      "windowSize": "maximize"
     },
     "MyHelper": {
       "require": "./myhelper_helper.js"

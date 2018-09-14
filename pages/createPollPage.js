@@ -16,7 +16,7 @@ module.exports = {
     titleField: {css: '#introTitle'},
     descriptionField: {css: '#introDesc'},
     backgroundEditorPopup: {css: '.modal-content'},
-    uploadImageButton: 'Upload image',
+    uploadImageButton: {xpath: '//input[@name="qqfile"]'},
     questionsTab: 'Questions',
     addAnswerButton: '+ Add Answer',
     addQuestionButton: '+ Add Question',
@@ -103,7 +103,7 @@ module.exports = {
         I.fillField(this.answerField, answer3);
     },
 
-    createSecondQuestion(question, url1, url2) {
+    createSecondQuestion(question, url) {
         I.wait(1);
         I.click(this.addQuestionButton);
         I.wait(1);
@@ -120,14 +120,19 @@ module.exports = {
         I.click(this.firstAnswerOfSecondQuestion);
         I.wait(1);
         I.click(this.addImageButton);
+    //I.wait(1);
+    //I.click(this.uploadImageButton);
+    // this.loadImageWithUrl(url1);
         I.wait(1);
-        this.loadImageWithUrl(url1);
-        I.wait(5);
+        I.fillField(this.uploadImageButton, 'D:\\autotesting\\asky_codeceptjs\\asky_codeceptjs\\images\\1.jpg');      // относительный путь может быть '.\\images\\1.jpg'
+        I.wait(1);
+        I.click(this.backgroundEditorSaveAndCloseButton);
+        I.wait(1);
         I.click(this.secondAnswerOfSecondQuestion);
         I.wait(1);
         I.click(this.addImageButton);
         I.wait(1);
-        this.loadImageWithUrl(url2);
+        this.loadImageWithUrl(url);
     },
 
     saveNewQuizz() {
